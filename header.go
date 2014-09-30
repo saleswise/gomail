@@ -21,7 +21,7 @@ func split(ts []token, s token) [][]token {
 }
 
 // BUG: We don't currently support domain literals with commas.
-func parseAddressList(s []byte) ([]Address, error) {
+func ParseAddressList(s []byte) ([]Address, error) {
 	al := []Address{}
 	ts, e := tokenize(s)
 	if e != nil {
