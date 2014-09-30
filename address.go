@@ -11,6 +11,7 @@ import (
 type Address interface {
 	String() string
 	Name()   string
+	Email()  string
 }
 
 type MailboxAddr struct {
@@ -28,9 +29,13 @@ func (ma MailboxAddr) Name() string {
 
 func (ma MailboxAddr) String() string {
 	if ma.name == "" {
-		return fmt.Sprintf("%s@%s", ma.local, ma.domain)
+		return ma.Email()
 	}
 	return fmt.Sprintf("%s <%s@%s>", ma.name, ma.local, ma.domain)
+}
+
+func (ma MailboxAddr) Email() string {
+	return fmt.Sprintf("%s@%s", ma.local, ma.domain)
 }
 
 type GroupAddr struct {
