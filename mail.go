@@ -90,17 +90,17 @@ func Process(r RawMessage) (m Message, e error) {
 		case `Date`:
 			m.Date = ParseDate(string(rh.Value))
 		case `From`:
-			m.From, e = parseAddressList(rh.Value)
+			m.From, e = ParseAddressList(rh.Value)
 		case `Sender`:
 			m.Sender, e = ParseAddress(rh.Value)
 		case `Reply-To`:
-			m.ReplyTo, e = parseAddressList(rh.Value)
+			m.ReplyTo, e = ParseAddressList(rh.Value)
 		case `To`:
-			m.To, e = parseAddressList(rh.Value)
+			m.To, e = ParseAddressList(rh.Value)
 		case `Cc`:
-			m.Cc, e = parseAddressList(rh.Value)
+			m.Cc, e = ParseAddressList(rh.Value)
 		case `Bcc`:
-			m.Bcc, e = parseAddressList(rh.Value)
+			m.Bcc, e = ParseAddressList(rh.Value)
 		case `Subject`:
 			m.Subject = string(rh.Value)
 		case `Comments`:

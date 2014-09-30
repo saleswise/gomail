@@ -11,7 +11,6 @@ import (
 type Address interface {
 	String() string
 	Name()   string
-	Email()  string
 }
 
 type MailboxAddr struct {
@@ -49,6 +48,10 @@ func (ga GroupAddr) Name() string {
 
 func (ga GroupAddr) String() string {
 	return ""
+}
+
+func (ga GroupAddr) Boxes() []MailboxAddr {
+	return ga.boxes
 }
 
 func ParseAddress(bs []byte) (Address, error) {
